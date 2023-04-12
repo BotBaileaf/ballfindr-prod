@@ -1,15 +1,15 @@
-resource "aws_lb" "TF_LB" {
-  name               = "TF_LB"
+resource "aws_lb" "tf-lb" {
+  name               = "tf-lb"
   load_balancer_type = "application"
   security_groups = [var.SEC-GR-TF]
   subnets = var.aws_subnet-public-SN
   tags = {
-    Name = "TF_LB"
+    Name = "tf-lb"
   }
 }
 
 resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.TF_LB.arn
+  load_balancer_arn = aws_lb.tf-lb.arn
   port = "80"
   protocol = "HTTP"
   default_action {
