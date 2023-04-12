@@ -3,7 +3,6 @@ resource "aws_lb" "tf-lb" {
   load_balancer_type = "application"
   security_groups = [var.SEC-GR-TF]
   subnets = [ var.aws_subnet-public-SN, var.aws_subnet-public-SN-2 ]
-#   subnets = var.aws_subnet-public-SN
   tags = {
     Name = "tf-lb"
   }
