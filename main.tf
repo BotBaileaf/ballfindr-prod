@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "ballfindr"
+
+    workspaces {
+      name = "ballfindr-prod"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,13 +14,6 @@ terraform {
     random = {
       source  = "hashicorp/random"
       version = "3.4.3"
-    }
-  }
-  cloud {
-    organization = "ballfindr"
-
-    workspaces {
-      name = "ballfindr-prod"
     }
   }
   required_version = ">= 1.1.0"
