@@ -34,6 +34,15 @@ resource "aws_subnet" "public-SN" {
   map_public_ip_on_launch = true
   tags              = { Name = "public-tf-SN" }
 }
+
+resource "aws_subnet" "public-SN-2" {
+  vpc_id            = aws_vpc.vpc-tf.id
+  availability_zone = var.azs[1]
+  cidr_block        = var.public-cidr
+  map_public_ip_on_launch = true
+  tags              = { Name = "public-tf-SN-2" }
+}
+
 resource "aws_subnet" "private-SN" {
   vpc_id            = aws_vpc.vpc-tf.id
   availability_zone = var.azs[1]
@@ -45,6 +54,13 @@ resource "aws_route_table_association" "public-SN-RT" {
   subnet_id      = aws_subnet.public-SN.id
 
 }
+
+resource "aws_route_table_association" "public-SN-RT-2" {
+  route_table_id = aws_route_table.vpc-tf-public-RT.id
+  subnet_id      = aws_subnet.public-SN-2.id
+
+}
+
 resource "aws_route_table_association" "private-SN-RT" {
   route_table_id = aws_route_table.vpc-tf-private-RT.id
   subnet_id      = aws_subnet.private-SN.id
