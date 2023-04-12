@@ -10,10 +10,10 @@ terraform {
     }
   }
   cloud {
-    organization = "REPLACE_ME"
+    organization = "ballfindr"
 
     workspaces {
-      name = "learn-terraform-github-actions"
+      name = "ballfindr-prod"
     }
   }
   required_version = ">= 1.1.0"
