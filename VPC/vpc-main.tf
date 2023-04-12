@@ -38,7 +38,7 @@ resource "aws_subnet" "public-SN" {
 resource "aws_subnet" "public-SN-2" {
   vpc_id            = aws_vpc.vpc-tf.id
   availability_zone = var.azs[1]
-  cidr_block        = var.public-cidr
+  cidr_block        = var.public-cidr-2
   map_public_ip_on_launch = true
   tags              = { Name = "public-tf-SN-2" }
 }
