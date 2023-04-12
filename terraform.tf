@@ -1,7 +1,6 @@
-cloud {
+  cloud {
     organization = "ballfindr"
-}
-
-workspaces {
-    name = "ballfindr-prod"
-}
+    workspaces {
+      name = "ballfindr-prod"
+    }
+  }
