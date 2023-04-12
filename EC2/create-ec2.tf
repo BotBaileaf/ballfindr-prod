@@ -38,7 +38,7 @@ resource "aws_launch_configuration" "ec2cluster" {
 
 resource "aws_autoscaling_group" "asg" {
 	launch_configuration = aws_launch_configuration.ec2cluster.name
-	vpc_zone_identifier = var.aws_subnet-public-SN
+	vpc_zone_identifier = [var.aws_subnet-public-SN]
 	target_group_arns = [var.asg-tg.arn]
 	health_check_type = "ELB"
 	min_size = 2
