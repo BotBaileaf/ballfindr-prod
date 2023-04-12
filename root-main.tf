@@ -10,6 +10,7 @@ module "EC2" {
   aws_subnet-public-SN = module.VPC.aws_subnet-public-SN
   aws_subnet-private-SN = module.VPC.aws_subnet-private-SN
   SEC-GR-TF                = module.SEC-GROUP.SG-TF
+  asg-tg = module.LOAD-BALANCER.asg-tg
 }
 
 module "LOAD-BALANCER" {
